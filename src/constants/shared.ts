@@ -1,0 +1,1 @@
+export const PRODUCTS_TABLE_HEADERS = ["No.","Images","Name","Category","Brand","Price","Stock","Action"]

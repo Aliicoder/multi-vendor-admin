@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  .titillium {
+    font-family: "Titillium Web", sans-serif;
+    font-style: normal;
+  }
+  .montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+  :root {
+    --main-color: #f8fafc;
+    --secondary-color: #f8fafc;
+    --text-color: rgba(0, 0, 0, 0.774);
+    --border-color: #e5e7eb;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+  .c1 {
+    font-size: clamp(0.25rem, 0.25rem + 0.4vw, 0.625rem);
+  }
+  .c2 {
+    font-size: clamp(0.25rem, 0.25rem + 0.6vw, 0.8125rem);
+  }
+  .c3 {
+    font-size: clamp(0.25rem, 0.25rem + 0.8vw, 1rem);
+  }
+  .c4 {
+    font-size: clamp(0.25rem, 0.25rem + 1.0667vw, 1.25rem);
+  }
+  .c5 {
+    font-size: clamp(0.25rem, 0.25rem + 1.4vw, 1.5625rem);
+  }
+  .c6 {
+    font-size: clamp(0.25rem, 0.25rem + 1.8vw, 1.9375rem);
+  }
+  .c7 {
+    font-size: clamp(0.25rem, 0.25rem + 2.3333vw, 2.4375rem);
+  }
+  .c8 {
+    font-size: clamp(0.25rem, 0.25rem + 3vw, 3.0625rem);
+  }
+  .c9 {
+    font-size: clamp(0.25rem, 0.25rem + 3.8vw, 3.8125rem);
+  }
+  ::-webkit-scrollbar {
+    width: 0.5em; /* Adjusts the width of the scrollbar */
+    height: 0.5em; /* Adjusts the height of the scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: white;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 59%);
+  }
+  * {
+    outline: ato;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-track::-webkit-scrollbar-track {
+    display: none;
+    background: transparent;
+  }
+  .rounded-thumb::-webkit-scrollbar-thumb {
+    @apply rounded-md;
+  }
+  .active {
+    background-color: gray;
+  }
+  .aspect-triangle {
+    aspect-ratio: 12/4;
+  }
+  .-aspect-triangle {
+    aspect-ratio: 4/5;
+  }
+  .cp-6 {
+    padding: clamp(0.09375rem, 0.0938rem + 0.3vw, 0.375rem);
+  }
+  .cp-24 {
+    padding: clamp(0.375rem, 0.375rem + 1.2vw, 1.5rem);
+  }
+  .cp-x-2_5 {
+    padding-left: clamp(0.125rem, 0.125rem + 0.2vw, 0.3125rem);
+    padding-right: clamp(0.125rem, 0.125rem + 0.2vw, 0.3125rem);
+  }
+  .cp-x-2_7 {
+    padding-left: clamp(0.0625rem, 0.0625rem + 0.4vw, 0.4375rem);
+    padding-right: clamp(0.0625rem, 0.0625rem + 0.4vw, 0.4375rem);
+  }
+  .cp-y-1_4 {
+    padding-top: clamp(0.0625rem, 0.0625rem + 0.2vw, 0.25rem);
+    padding-bottom: clamp(0.0625rem, 0.0625rem + 0.2vw, 0.25rem);
+  }
+  .cp-y-1_6 {
+    padding-top: clamp(0.0625rem, 0.0625rem + 0.3333vw, 0.375rem);
+    padding-bottom: clamp(0.0625rem, 0.0625rem + 0.3333vw, 0.375rem);
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.gray-linear-gradient {
+  background: linear-gradient(
+    0deg,
+    rgba(249, 251, 252, 1) 0%,
+    rgba(249, 251, 252, 0.5970763305322129) 10%,
+    rgba(134, 135, 136, 0) 50%
+  ) !important;
+}
