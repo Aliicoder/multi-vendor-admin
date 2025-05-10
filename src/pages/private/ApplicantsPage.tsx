@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Pagination from "@/components/shared/Pagination";
 import { CiSearch } from "react-icons/ci";
 import useSetTimeout from "@/hooks/useSetTimeout";
@@ -10,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ISeller, IUser } from "@/types/types";
+import { ISeller } from "@/types/types";
 import useSellersPagination from "@/hooks/useSellerPagination";
 import { errorToast, getInitials, successToast } from "@/lib/utils";
 import {
@@ -39,8 +38,6 @@ function ApplicantsPage() {
       perPage,
       sort,
     });
-  const navigate = useNavigate();
-  const [openFilter, setOpenFilter] = useState(false);
   const { timeouter } = useSetTimeout();
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let value = event.target.value;
@@ -127,7 +124,7 @@ function ApplicantsPage() {
             <tbody>
               {sellers &&
                 sellers.length > 0 &&
-                sellers.map((seller: ISeller, i: number) => (
+                sellers.map((seller: ISeller) => (
                   <>
                     <tr
                       key={seller._id}

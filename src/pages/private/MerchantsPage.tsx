@@ -3,7 +3,7 @@ import Pagination from "@/components/shared/Pagination";
 import useSellersPagination from "@/hooks/useSellerPagination";
 
 import { TbFilter } from "react-icons/tb";
-import { ISeller, IUser } from "@/types/types";
+import { ISeller, ISellerStatus } from "@/types/types";
 
 import CustomButton from "@/components/buttons/CustomButton";
 import {
@@ -16,16 +16,11 @@ import {
 import { CiSearch } from "react-icons/ci";
 import Selection from "@/components/Selection";
 import useSetTimeout from "@/hooks/useSetTimeout";
-import { errorToast, getInitials } from "@/lib/utils";
+import { getInitials } from "@/lib/utils";
 import { useNavigate } from "react-router-dom";
 import Loader from "@/components/Loaders/Loader";
-const STATUS = { active: "#008000", inactive: "#ff0000" };
-const PAYMENT = { pending: "#ff0000", fulfilled: "#008000" };
 
-type ISellerStatus = "active" | "inactive";
-type ISellerPayment = "pending" | "fulfilled";
-
-function AdminSellers() {
+function MerchantsPage() {
   const [name, setName] = useState("");
   const [perPage, setPerPage] = useState(8);
   const [openFilter, setOpenFilter] = useState(false);
@@ -51,11 +46,14 @@ function AdminSellers() {
     }, 2000);
   };
 
-  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    if (event.target.value == "") {
-      const { [event.target.name]: _, ...rest } = sort;
-      setSort(rest);
-    } else setSort({ ...sort, [event.target.name]: event.target.value });
+  const handleSortChange = (name: string, value: string) => {
+    setSort((prevSort: string[]) => {
+      let updatedSort = prevSort.filter((key) => !key.includes(name));
+      if (value !== "default") {
+        updatedSort = [value, ...updatedSort];
+      }
+      return updatedSort;
+    });
   };
   return (
     <>
@@ -120,7 +118,7 @@ function AdminSellers() {
             <tbody>
               {sellers &&
                 sellers.length > 0 &&
-                sellers.map((seller: ISeller, i: number) => (
+                sellers.map((seller: ISeller) => (
                   <>
                     <tr
                       key={seller._id}
@@ -200,49 +198,4 @@ function AdminSellers() {
   );
 }
 
-export default AdminSellers;
-{
-  /* <div className="flex flex-col basis-full gap-2 p-6  h-full ">
-{sellers && sellers.length > 0 ? (
-  sellers.map((seller: IUser) => (
-    <div className=" p-5 flex flex-col shrink-0 rounded-md shadow-sm border border-gray-200 bg-white">
-      <div key={seller?.name} className="relative gap-3  flex ">
-        <div
-          className="size-10 m-5 flex justify-center  items-center rounded-full font-semibold ring-1 ring-offset-2
-         bg-blue-500 text-white"
-        >
-          {getInitials(seller.name)}
-        </div>
-
-        <div className="gap-3  flex flex-col justify-center">
-          <h1 className="text-fs-16 font-bold">@{seller.name}</h1>
-          <h1 className="text-fs-13 font-bold">{seller.email}</h1>
-        </div>
-        <div className=" ml-auto mr-5 gap-3 flex items-center">
-          <CustomButton
-            theme="black"
-            className="h-10 flex items-center justify-center !rounded-xl"
-            onClick={() => navigate(`${seller._id}`)}
-          >
-            view
-          </CustomButton>
-          {/* <CustomButton
-            onClick={() => handleApplicantAcceptance(seller._id)}
-            className=" "
-          >
-            delete
-          </CustomButton> */
-}
-//         </div>
-//       </div>
-//       <div>
-//         <h1 className="text-fs-13">{seller.description}</h1>
-//       </div>
-//     </div>
-//   ))
-// ) : (
-//   <div className="flex justify-center">
-//     <h1 className="text-gray-400">No sellers found</h1>
-//   </div>
-// )}
-// </div> */}
+export default MerchantsPage;

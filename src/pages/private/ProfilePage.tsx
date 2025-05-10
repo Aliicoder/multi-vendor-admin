@@ -1,15 +1,13 @@
-
 import { Link, Outlet, useLocation } from "react-router-dom";
-import {ISellerProfileNavigator, sellerProfileNavigators} from "@/constants/navigators";
-const IsActive = (path:string,segment:string):boolean=>{
+const IsActive = (path: string, segment: string): boolean => {
   const regex = new RegExp(segment, "g");
-  return regex.test(path)
-}
+  return regex.test(path);
+};
 function ProfilePage() {
-  let { pathname } = useLocation();  
+  let { pathname } = useLocation();
   return (
-    <div className='montserrat cp-3_10  w-full  bg-slate-50'>
-      <h1 className='c5 cp-3_10'>Account Settings</h1>
+    <div className="montserrat cp-3_10  w-full  bg-slate-50">
+      {/* <h1 className='c5 cp-3_10'>Account Settings</h1>
       <div className='flex cp-3_10 gap-3'>
         <div className='flex flex-col w-2/12 ' >
             {
@@ -30,10 +28,9 @@ function ProfilePage() {
           
         </div>
         <Outlet />
-      </div>
+      </div> */}
     </div>
-  )
+  );
 }
 
-export default ProfilePage
-
+export default ProfilePage;

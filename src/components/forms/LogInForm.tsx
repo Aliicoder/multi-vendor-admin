@@ -1,7 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { FaGoogle } from "react-icons/fa";
 import {
   Form,
   FormControl,
@@ -22,6 +21,7 @@ import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { useState } from "react";
 
 import CustomButton from "../buttons/CustomButton";
+import { GoogleSignInButton } from "../buttons/GoogleSignIn";
 
 const LogInForm = () => {
   const [showInput, setShowInput] = useState(false);
@@ -48,10 +48,10 @@ const LogInForm = () => {
     }
   }
   return (
-    <div className="flex justify-center items-center w-full h-lvh bg-slate-50  ">
+    <div className="flex justify-center items-center w-full h-lvh bg-blue-500  ">
       <Form {...form}>
         <form
-          className="relative space-8 w-[300px] border border-solid  p-5 rounded-sm bg-white"
+          className="relative space-8 w-[300px] border border-solid p-5 rounded-sm bg-white"
           onSubmit={form.handleSubmit(onSubmit)}
         >
           <FormField
@@ -113,13 +113,7 @@ const LogInForm = () => {
               Login
             </CustomButton>
 
-            <CustomButton
-              theme="white"
-              className="gap-3 flex items-center justify-center"
-            >
-              <FaGoogle className="text-red-500" />
-              via Google
-            </CustomButton>
+            <GoogleSignInButton />
           </div>
         </form>
       </Form>
